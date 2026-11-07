@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>José Mora — Portafolio</title>
+<meta name="description" content="José Mora — Full-Stack Developer en Chihuahua, México. React, TypeScript, Node.js y Python. Disponible para remoto.">
+<meta property="og:title" content="José Mora — Full-Stack Developer">
+<meta property="og:description" content="Convierto procesos manuales en software que escala. React · Node.js · Python · Remoto UTC-6.">
+<meta property="og:url" content="https://josemora.dev/">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://josemora.dev/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0E17'/%3E%3Ctext x='4' y='23' font-family='monospace' font-size='18' font-weight='700' fill='%2322D3EE'%3EJM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout: a game "level select" — HUD hero, numbered mission cards, then stack, timeline and contact. One dark world, single theme. */
+  --bg:#0A0E17; --panel:#111827; --line:#1F2937; --line-2:#374151;
+  --ink:#E5E7EB; --ink-strong:#F9FAFB; --muted:#9CA3AF;
+  --cyan:#22D3EE; --pink:#F472B6; --green:#34D399; --amber:#FBBF24;
+  --display:"Chakra Petch", "Segoe UI", sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);background-image:radial-gradient(#1A2233 1px, transparent 1px);background-size:18px 18px;color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+html[data-lang="es"] [lang="en"], html[data-lang="en"] [lang="es"]{display:none!important}
+a{color:var(--cyan)} a:hover{color:#67E8F9}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
+.topbar{position:absolute;inset:0 0 auto 0;height:4px;background:var(--cyan)}
+.topbar::after{content:"";position:absolute;right:8%;top:4px;width:160px;height:4px;background:var(--pink)}
+
+nav{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:28px 0 0}
+.logo{font-family:var(--display);font-weight:700;font-size:20px;color:var(--ink-strong);text-decoration:none;letter-spacing:.02em}
+.logo span{color:var(--cyan)}
+.navlinks{display:flex;gap:20px;flex-wrap:wrap;align-items:center;font-family:var(--mono);font-size:13px}
+.navlinks a{color:var(--muted);text-decoration:none} .navlinks a:hover{color:var(--ink-strong)}
+.lang{display:flex;border:1px solid var(--line-2)}
+.lang button{background:transparent;border:0;color:var(--muted);font-family:var(--mono);font-size:12px;padding:6px 10px;cursor:pointer;min-height:32px}
+.lang button[aria-pressed="true"]{background:var(--cyan);color:#062028;font-weight:600}
+
+header.hero{padding:72px 0 56px;display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+.prompt{font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--cyan)}
+.cursor{color:var(--pink);animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+h1{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(40px,7vw,84px);line-height:.98;letter-spacing:-.01em;color:var(--ink-strong);text-wrap:balance;max-width:16ch}
+h1 em{font-style:normal;color:var(--cyan)}
+.lede{margin:0;max-width:62ch;font-size:18px;color:#D1D5DB}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-family:var(--mono);font-size:13px;padding:5px 10px;border:1px solid var(--line-2);color:#D1D5DB}
+.tag.c{border-color:var(--cyan);color:var(--cyan)} .tag.p{border-color:var(--pink);color:var(--pink)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;font-family:var(--mono);font-size:14px;font-weight:600;text-decoration:none;border:1px solid var(--cyan)}
+.btn.primary{background:var(--cyan);color:#062028} .btn.primary:hover{background:#67E8F9;color:#062028}
+.btn.ghost{color:var(--cyan)} .btn.ghost:hover{background:rgba(34,211,238,.08)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:8px}
+.stat{background:var(--panel);border:1px solid var(--line);padding:14px 16px}
+.stat b{display:block;font-family:var(--display);font-size:30px;line-height:1.1;color:var(--cyan);font-variant-numeric:tabular-nums}
+.stat span{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+
+section{padding:56px 0;border-top:1px solid var(--line)}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+h2{margin:0;font-family:var(--display);font-size:clamp(26px,3.4vw,36px);font-weight:700;color:var(--ink-strong);text-wrap:balance}
+h2 small{display:block;font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.14em;color:var(--cyan);margin-bottom:6px}
+.note{font-family:var(--mono);font-size:13px;color:var(--muted);max-width:52ch}
+
+.missions{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.mission{position:relative;background:var(--panel);border:1px solid var(--line);padding:22px 22px 20px;display:flex;flex-direction:column;gap:12px;transition:transform .18s ease, border-color .18s ease}
+.mission:hover{transform:translateY(-3px);border-color:var(--line-2)}
+.mission::before{content:"";position:absolute;top:-1px;left:-1px;width:18px;height:18px;border-top:2px solid var(--cyan);border-left:2px solid var(--cyan)}
+.m-top{display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.status{padding:3px 8px;border:1px solid currentColor;font-weight:600;letter-spacing:.04em}
+.s-done{color:var(--green)} .s-live{color:var(--cyan)} .s-pilot{color:var(--amber)} .s-arch{color:var(--pink)}
+.mission h3{margin:0;font-family:var(--display);font-size:22px;line-height:1.2;color:var(--ink-strong);text-wrap:balance}
+.org{font-family:var(--mono);font-size:12.5px;color:var(--pink)}
+.loot{font-family:var(--display);font-size:20px;font-weight:600;color:var(--cyan);line-height:1.25}
+.mission p{margin:0;font-size:15px;color:#D1D5DB}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.chip{font-family:var(--mono);font-size:12px;padding:2px 8px;background:#0D1320;border:1px solid var(--line-2);color:#D1D5DB}
+
+.stack{display:grid;gap:14px}
+.row{display:grid;grid-template-columns:160px minmax(0,1fr);gap:16px;align-items:start}
+.row .label{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:3px;letter-spacing:.08em}
+
+.timeline{display:grid;gap:0;border-left:2px solid var(--line-2);margin-left:6px}
+.t-item{position:relative;padding:0 0 26px 26px}
+.t-item::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;background:var(--bg);border:2px solid var(--line-2)}
+.t-item.now::before{background:var(--cyan);border-color:var(--cyan)}
+.t-when{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.t-item h3{margin:2px 0 2px;font-family:var(--display);font-size:19px;color:var(--ink-strong)}
+.t-item p{margin:0;font-size:15px;color:#D1D5DB;max-width:70ch}
+
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.box{background:var(--panel);border:1px solid var(--line);padding:20px 22px}
+.box h3{margin:0 0 10px;font-family:var(--display);font-size:19px;color:var(--ink-strong)}
+.box ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15px;color:#D1D5DB}
+
+.contact{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:center;background:var(--panel);border:1px solid var(--line);padding:32px}
+.contact .big{font-family:var(--display);font-size:clamp(26px,3.6vw,40px);font-weight:700;line-height:1.1;color:var(--ink-strong);margin:0}
+.contact dl{margin:0;display:grid;gap:10px;font-size:15px}
+.contact dt{font-family:var(--mono);font-size:12px;color:var(--pink);letter-spacing:.1em}
+.contact dd{margin:0;word-break:break-word}
+footer{padding:28px 0 40px;font-family:var(--mono);font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media (max-width:760px){
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .row{grid-template-columns:minmax(0,1fr);gap:6px}
+  .two,.contact{grid-template-columns:minmax(0,1fr)}
+  .contact{padding:22px}
+  header.hero{padding:48px 0 40px}
+}
+</style>
+</head>
+<body>
+<div class="topbar" aria-hidden="true"></div>
+<div class="wrap">
+
+<nav aria-label="Principal">
+  <a class="logo" href="#top" id="top">JOSÉ<span>/</span>MORA</a>
+  <div class="navlinks">
+    <a href="#misiones"><span lang="es">Proyectos</span><span lang="en">Projects</span></a>
+    <a href="#stack">Stack</a>
+    <a href="#trayectoria"><span lang="es">Trayectoria</span><span lang="en">Experience</span></a>
+    <a href="#contacto"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" id="btn-es" data-set="es" aria-pressed="true">ES</button>
+      <button type="button" id="btn-en" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="prompt">&gt; PLAYER_01 :: FULL-STACK DEVELOPER<span class="cursor" aria-hidden="true">_</span></div>
+  <h1>
+    <span lang="es">Convierto procesos manuales en <em>software que escala.</em></span>
+    <span lang="en">I turn manual processes into <em>software that scales.</em></span>
+  </h1>
+  <p class="lede">
+    <span lang="es">Soy José Mora, desarrollador full-stack en Chihuahua, México. Construyo soluciones de punta a punta: portales web, programas de lealtad, automatización de datos e integraciones con ERP. Trabajo con React, TypeScript, Node.js y Python, y uso IA a diario para entregar más rápido.</span>
+    <span lang="en">I'm José Mora, a full-stack developer based in Chihuahua, Mexico. I build end-to-end business solutions: web portals, loyalty programs, data automation and ERP integrations. I work with React, TypeScript, Node.js and Python, and use AI-assisted development daily to ship faster.</span>
+  </p>
+  <div class="tags">
+    <span class="tag c">React · TypeScript</span>
+    <span class="tag p">Node.js · Express · REST APIs</span>
+    <span class="tag">Python · pandas</span>
+    <span class="tag">Astro · PWA</span>
+    <span class="tag"><span lang="es">Remoto · UTC-6</span><span lang="en">Remote · UTC-6</span></span>
+  </div>
+  <div class="cta">
+    <a class="btn primary" href="https://www.linkedin.com/in/jose-mora-235245185/">LinkedIn ↗</a>
+    <a class="btn ghost" href="#contacto"><span lang="es">Contactar</span><span lang="en">Get in touch</span></a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>4+</b><span lang="es">años de experiencia</span><span lang="en">years of experience</span></div>
+    <div class="stat"><b>5</b><span lang="es">empresas y sectores</span><span lang="en">companies &amp; industries</span></div>
+    <div class="stat"><b>2 sem → min</b><span lang="es">reporte automatizado</span><span lang="en">report automated</span></div>
+    <div class="stat"><b>3</b><span lang="es">premios en concursos</span><span lang="en">competition awards</span></div>
+  </div>
+</header>
+
+<section id="misiones" aria-labelledby="h-mis">
+  <div class="sec-head">
+    <h2 id="h-mis"><small>[ 01 ] <span lang="es">MISIONES</span><span lang="en">MISSIONS</span></small><span lang="es">Proyectos seleccionados</span><span lang="en">Selected projects</span></h2>
+    <p class="note"><span lang="es">El código de estos proyectos pertenece a mis empleadores y es privado. Aquí cuento el problema, lo que construí y el resultado.</span><span lang="en">The code for these projects belongs to my employers and is private. Here I describe the problem, what I built and the outcome.</span></p>
+  </div>
+
+  <div class="missions">
+    <article class="mission">
+      <div class="m-top"><span>MISSION 01</span><span class="status s-pilot"><span lang="es">EN PILOTO</span><span lang="en">IN PILOT</span></span></div>
+      <h3>Premia+ — <span lang="es">programa de lealtad</span><span lang="en">loyalty program</span></h3>
+      <div class="org">COFIASA · <span lang="es">líder del proyecto</span><span lang="en">project lead</span></div>
+      <div class="loot"><span lang="es">Del documento de reglas al piloto en 4 sucursales</span><span lang="en">From business rules to a 4-branch pilot</span></div>
+      <p><span lang="es">Definí reglas de negocio, niveles y 15 KPIs, coordiné las pruebas en el ERP y desarrollé el portal de clientes con una API REST de solo lectura que nunca toca el sistema en producción.</span><span lang="en">Defined business rules, tiers and 15 KPIs, coordinated ERP testing, and built the customer portal on a read-only REST API that never touches the production system.</span></p>
+      <div class="chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Tailwind</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">BFF</span></div>
+    </article>
+
+    <article class="mission">
+      <div class="m-top"><span>MISSION 02</span><span class="status s-done"><span lang="es">COMPLETADA</span><span lang="en">SHIPPED</span></span></div>
+      <h3><span lang="es">Automatización del reporte de ventas</span><span lang="en">Sales report automation</span></h3>
+      <div class="org">COFIASA</div>
+      <div class="loot"><span lang="es">De 2 semanas a minutos</span><span lang="en">From 2 weeks to minutes</span></div>
+      <p><span lang="es">Reemplacé macros VBA y tablas dinámicas manuales por un script en Python que genera el reporte mensual de promociones por zona, con comparativos contra el mes y el año anteriores, en un solo clic.</span><span lang="en">Replaced VBA macros and manual pivot tables with a Python script that builds the monthly regional promotions report, including month-over-month and year-over-year comparisons, in one click.</span></p>
+      <div class="chips"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">openpyxl</span><span class="chip">Excel</span></div>
+    </article>
+
+    <article class="mission">
+      <div class="m-top"><span>MISSION 03</span><span class="status s-live"><span lang="es">EN CURSO</span><span lang="en">IN PROGRESS</span></span></div>
+      <h3><span lang="es">Nuevo sitio corporativo</span><span lang="en">New corporate website</span></h3>
+      <div class="org">COFIASA · <span lang="es">desarrollador único</span><span lang="en">sole developer</span></div>
+      <div class="loot"><span lang="es">De WordPress a un sitio a la medida</span><span lang="en">From WordPress to a custom-built site</span></div>
+      <p><span lang="es">Sitio en Astro desplegado en Cloudflare, pensado para el comprador con intención de compra: mapa interactivo de sucursales y promociones que se actualizan desde Excel sin tocar código.</span><span lang="en">An Astro site deployed on Cloudflare, built for buyers ready to purchase: an interactive branch map and promotions that update from Excel without touching code.</span></p>
+      <div class="chips"><span class="chip">Astro</span><span class="chip">Cloudflare</span><span class="chip">SVG</span><span class="chip">JSON</span><span class="chip">Git</span></div>
+    </article>
+
+    <article class="mission">
+      <div class="m-top"><span>MISSION 04</span><span class="status s-arch"><span lang="es">ARQUITECTURA</span><span lang="en">ARCHITECTURE</span></span></div>
+      <h3><span lang="es">Catálogo PWA mobile-first</span><span lang="en">Mobile-first PWA catalog</span></h3>
+      <div class="org">COFIASA</div>
+      <div class="loot"><span lang="es">“La ferretería en tu bolsillo”</span><span lang="en">“The hardware store in your pocket”</span></div>
+      <p><span lang="es">Diseñé la arquitectura de un catálogo para contratistas en obra: uso con una mano y en 4G, búsqueda con índice externo y un conector seguro que sincroniza inventario y precios desde el ERP.</span><span lang="en">Designed the architecture of a catalog for contractors on site: one-handed use on 4G, search on an external index, and a secure connector that syncs stock and prices from the ERP.</span></p>
+      <div class="chips"><span class="chip">PWA</span><span class="chip">Astro</span><span class="chip">Search index</span><span class="chip">ETL</span></div>
+    </article>
+
+    <article class="mission">
+      <div class="m-top"><span>MISSION 05</span><span class="status s-done"><span lang="es">COMPLETADA</span><span lang="en">SHIPPED</span></span></div>
+      <h3><span lang="es">Checador de asistencia</span><span lang="en">Attendance tracking system</span></h3>
+      <div class="org">Grupo Watt Solar</div>
+      <div class="loot"><span lang="es">En uso por toda la organización</span><span lang="en">Rolled out company-wide</span></div>
+      <p><span lang="es">Sistema de control de asistencia para todo el personal, con hardware en Raspberry Pi y app en Flutter. También arranqué el proyecto de migración de la plataforma de ventas de la empresa.</span><span lang="en">Attendance control system for all staff, with Raspberry Pi hardware and a Flutter app. I also kicked off the migration of the company's sales platform.</span></p>
+      <div class="chips"><span class="chip">Raspberry Pi</span><span class="chip">Python</span><span class="chip">Flutter</span></div>
+    </article>
+
+    <article class="mission">
+      <div class="m-top"><span>MISSION 06</span><span class="status s-done"><span lang="es">COMUNIDAD</span><span lang="en">COMMUNITY</span></span></div>
+      <h3><span lang="es">Taller “Más ideas, menos código”</span><span lang="en">“More Ideas, Less Code” workshop</span></h3>
+      <div class="org">NASA Space Apps Chihuahua 2026</div>
+      <div class="loot"><span lang="es">Crea apps con IA usando solo herramientas gratuitas</span><span lang="en">Build apps with AI using only free tools</span></div>
+      <p><span lang="es">Diseñé e impartí un taller de 4 horas para principiantes y estudiantes, incluido un bloque para crear su propio asistente de IA. También formé parte del equipo organizador del hackathon.</span><span lang="en">Designed and taught a 4-hour workshop for beginners and students, including a block on building their own AI assistant. I was also part of the hackathon's organizing team.</span></p>
+      <div class="chips"><span class="chip">AI</span><span class="chip">Prompting</span><span class="chip"><span lang="es">Docencia</span><span lang="en">Teaching</span></span></div>
+    </article>
+  </div>
+</section>
+
+<section id="stack" aria-labelledby="h-stack">
+  <div class="sec-head"><h2 id="h-stack"><small>[ 02 ] <span lang="es">INVENTARIO</span><span lang="en">INVENTORY</span></small>Stack</h2></div>
+  <div class="stack">
+    <div class="row"><div class="label">FRONTEND</div><div class="chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Astro</span><span class="chip">Vue.js</span><span class="chip">Tailwind CSS</span><span class="chip">HTML/CSS</span><span class="chip">PWA</span><span class="chip">Flutter</span></div></div>
+    <div class="row"><div class="label">BACKEND</div><div class="chips"><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">REST APIs</span><span class="chip">PHP</span><span class="chip">Laravel</span><span class="chip">Python</span><span class="chip">Django</span></div></div>
+    <div class="row"><div class="label"><span lang="es">DATOS</span><span lang="en">DATA</span></div><div class="chips"><span class="chip">SQL Server</span><span class="chip">MariaDB</span><span class="chip">SAP HANA</span><span class="chip">pandas</span><span class="chip">VBA</span><span class="chip">Power Automate</span></div></div>
+    <div class="row"><div class="label"><span lang="es">PLATAFORMAS</span><span lang="en">PLATFORMS</span></div><div class="chips"><span class="chip">Git</span><span class="chip">Cloudflare</span><span class="chip">Raspberry Pi</span><span class="chip">WordPress</span><span class="chip">HubSpot</span><span class="chip">WhatsApp Business API</span><span class="chip">SAP</span></div></div>
+    <div class="row"><div class="label"><span lang="es">IA APLICADA</span><span lang="en">APPLIED AI</span></div><div class="chips"><span class="chip">Claude Code</span><span class="chip">Prompt engineering</span><span class="chip"><span lang="es">Asistentes personalizados</span><span lang="en">Custom assistants</span></span></div></div>
+  </div>
+</section>
+
+<section id="trayectoria" aria-labelledby="h-tray">
+  <div class="sec-head"><h2 id="h-tray"><small>[ 03 ] QUEST LOG</small><span lang="es">Trayectoria</span><span lang="en">Experience</span></h2></div>
+  <div class="timeline">
+    <div class="t-item now"><div class="t-when"><span lang="es">AGO 2025 – HOY</span><span lang="en">AUG 2025 – PRESENT</span></div><h3>COFIASA &amp; PRADESA</h3><p><span lang="es">Analista de Sistemas / Webmaster. Premia+, sitio corporativo, catálogo PWA y automatización de reportes.</span><span lang="en">Systems Analyst / Webmaster. Premia+, corporate website, PWA catalog and report automation.</span></p></div>
+    <div class="t-item now"><div class="t-when"><span lang="es">2026 – HOY</span><span lang="en">2026 – PRESENT</span></div><h3>ZARIWEYES</h3><p><span lang="es">Fundador de una agencia de diseño y marketing digital: sitios web, e-commerce, redes sociales y rebranding.</span><span lang="en">Founder of a design and digital marketing agency: websites, e-commerce, social media and rebranding.</span></p></div>
+    <div class="t-item"><div class="t-when"><span lang="es">AGO 2023 – AGO 2025</span><span lang="en">AUG 2023 – AUG 2025</span></div><h3>Mayoristas Solares / Grupo Watt Solar</h3><p><span lang="es">Analista de Sistemas. Apps internas con Laravel-Vue y Django, checador de asistencia, implementación de Microsip y SAP.</span><span lang="en">Systems Analyst. Internal apps with Laravel-Vue and Django, attendance system, Microsip and SAP implementation.</span></p></div>
+    <div class="t-item"><div class="t-when"><span lang="es">AGO 2022 – AGO 2023</span><span lang="en">AUG 2022 – AUG 2023</span></div><h3>Interceramic</h3><p><span lang="es">Analista de Sistemas de Innovación. Evaluación de proyectos de innovación y soporte a plataformas web.</span><span lang="en">Innovation Systems Analyst. Evaluated innovation initiatives and supported web platforms.</span></p></div>
+    <div class="t-item"><div class="t-when">2022 – 2023</div><h3>IES Chihuahua · Honeywell Aerospace</h3><p><span lang="es">Docente universitario de tecnología y matemáticas; analista de aduanas con automatizaciones en VBA y apps web internas.</span><span lang="en">University lecturer in technology and math; customs analyst building VBA automations and internal web apps.</span></p></div>
+  </div>
+
+  <div class="two" style="margin-top:12px">
+    <div class="box">
+      <h3><span lang="es">Educación</span><span lang="en">Education</span></h3>
+      <ul>
+        <li><span lang="es">Ingeniería en Tecnologías de la Información y Comunicación</span><span lang="en">B.Eng. in Information and Communication Technologies</span> — Universidad Tecnológica de Parral, 2020</li>
+        <li><span lang="es">T.S.U. en Tecnologías de la Información</span><span lang="en">Associate Degree in ICT</span> — UT Parral, 2019</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3><span lang="es">Logros desbloqueados</span><span lang="en">Achievements</span></h3>
+      <ul>
+        <li><span lang="es">2do lugar</span><span lang="en">2nd place</span> — Hackathon Chihuahua 2018</li>
+        <li><span lang="es">Finalista</span><span lang="en">Finalist</span> — CONIES 2018</li>
+        <li><span lang="es">Finalista</span><span lang="en">Finalist</span> — <span lang="es">Premio Emprendedor CANACINTRA 2019</span><span lang="en">CANACINTRA Entrepreneur Award 2019</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" aria-labelledby="h-contact">
+  <div class="contact">
+    <div>
+      <p class="prompt" style="margin:0 0 10px">&gt; PRESS START<span class="cursor" aria-hidden="true">_</span></p>
+      <h2 id="h-contact" class="big"><span lang="es">¿Tienes un proceso que debería ser software?</span><span lang="en">Got a process that should be software?</span></h2>
+    </div>
+    <dl>
+      <div><dt>LINKEDIN</dt><dd><a href="https://www.linkedin.com/in/jose-mora-235245185/">linkedin.com/in/jose-mora-235245185</a></dd></div>
+      <div><dt>EMAIL</dt><dd><a href="mailto:joc98able@gmail.com">joc98able@gmail.com</a></dd></div>
+      <div><dt><span lang="es">UBICACIÓN</span><span lang="en">LOCATION</span></dt><dd><span lang="es">Chihuahua, México · disponible para remoto (UTC-6)</span><span lang="en">Chihuahua, Mexico · open to remote (UTC-6)</span></dd></div>
+      <div><dt><span lang="es">IDIOMAS</span><span lang="en">LANGUAGES</span></dt><dd><span lang="es">Español nativo · inglés avanzado</span><span lang="en">Spanish (native) · English (advanced)</span></dd></div>
+    </dl>
+  </div>
+</section>
+
+<footer><span>// JOSÉ MORA · 2026</span><span><span lang="es">Hecho con código e IA</span><span lang="en">Built with code and AI</span></span></footer>
+</div>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  function setLang(l){
+    root.setAttribute('data-lang', l);
+    root.setAttribute('lang', l);
+    document.getElementById('btn-es').setAttribute('aria-pressed', l === 'es' ? 'true' : 'false');
+    document.getElementById('btn-en').setAttribute('aria-pressed', l === 'en' ? 'true' : 'false');
+  }
+  function fromHash(){
+    var h = (location.hash || '').replace('#','');
+    if (h === 'en' || h === 'es') setLang(h);
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var l = b.getAttribute('data-set');
+      setLang(l);
+      try { history.replaceState(null, '', '#' + l); } catch(e) { location.hash = l; }
+    });
+  });
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+</body>
+</html>
