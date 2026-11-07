@@ -13,7 +13,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0E17'/%3E%3Ctext x='4' y='23' font-family='monospace' font-size='18' font-weight='700' fill='%2322D3EE'%3EJM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Jersey+10&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   /* Layout: a game "level select" — HUD hero, numbered mission cards, then stack, timeline and contact. One dark world, single theme. */
@@ -109,11 +109,51 @@ h2 small{display:block;font-family:var(--mono);font-size:13px;font-weight:500;le
 .contact dd{margin:0;word-break:break-word}
 footer{padding:28px 0 40px;font-family:var(--mono);font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
+
+/* Featured workshop: uses the workshop's own brand (orange cat mascot, mint, lavender, pixel display face) */
+.boss{--w-orange:#F94500;--w-lav:#8E9AFF;--w-mint:#2EE6A6;--w-bg:#171717;grid-column:1/-1;position:relative;background:var(--w-bg);border:2px solid var(--w-orange);padding:28px;margin-top:16px;display:grid;gap:24px;font-family:"Poppins",var(--body)}
+.boss::before{content:"";position:absolute;top:-2px;left:-2px;width:22px;height:22px;background:var(--w-orange)}
+.boss .m-top{font-family:var(--mono)}
+.boss .s-boss{color:var(--w-mint)}
+.boss-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px;align-items:center}
+.boss-logo{width:min(320px,100%);height:auto;display:block}
+.boss h3{margin:14px 0 4px;font-family:"Jersey 10",var(--display);font-weight:400;font-size:clamp(34px,4.4vw,52px);line-height:1;color:#fff;text-wrap:balance}
+.boss .org{color:var(--w-lav);font-family:var(--mono)}
+.boss p{margin:12px 0 0;font-size:15.5px;color:#E5E7EB;max-width:62ch}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:18px}
+.fact{border:1px solid #3A3A3A;padding:10px 12px;background:#1F1F1F}
+.fact b{display:block;font-family:"Jersey 10",var(--display);font-weight:400;font-size:34px;line-height:1;color:var(--w-mint)}
+.fact span{font-size:12.5px;color:#C9CBD1}
+.formula{margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13.5px}
+.formula .lbl{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--w-orange);width:100%}
+.formula .step{background:var(--w-lav);color:#14163A;font-weight:600;padding:5px 10px}
+.formula .arr{color:var(--w-mint);font-family:var(--mono)}
+.boss .btn{border-color:var(--w-orange);color:#fff;background:var(--w-orange);margin-top:20px}
+.boss .btn:hover{background:#FF6A2B;color:#fff}
+.boss-mascot{width:min(260px,70%);height:auto;justify-self:center;filter:drop-shadow(0 10px 0 rgba(249,69,0,.18))}
+.gallery-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px;color:#C9CBD1}
+.gallery-head strong{color:var(--w-mint);letter-spacing:.1em;font-weight:600}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.thumb{padding:0;border:1px solid #3A3A3A;background:#000;cursor:zoom-in;display:block;width:100%;text-align:left;color:inherit;font:inherit}
+.thumb img{display:block;width:100%;height:auto;aspect-ratio:1280/721;object-fit:cover}
+.thumb span{display:block;padding:7px 10px;font-size:12.5px;color:#C9CBD1;background:#1F1F1F;border-top:1px solid #3A3A3A}
+.thumb:hover{border-color:var(--w-mint)}
+dialog.lightbox{border:2px solid var(--w-orange,#F94500);background:#111;color:#fff;padding:0;max-width:min(1100px,94vw);width:100%}
+dialog.lightbox::backdrop{background:rgba(5,7,12,.85)}
+.lb-img{display:block;width:100%;height:auto}
+.lb-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;font-family:var(--mono);font-size:13px;flex-wrap:wrap}
+.lb-bar button{background:transparent;border:1px solid #444;color:#fff;font-family:var(--mono);min-height:40px;padding:0 14px;cursor:pointer}
+.lb-bar button:hover{border-color:#2EE6A6;color:#2EE6A6}
 @media (max-width:760px){
   .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
   .row{grid-template-columns:minmax(0,1fr);gap:6px}
   .two,.contact{grid-template-columns:minmax(0,1fr)}
   .contact{padding:22px}
+  .boss{padding:20px}
+  .boss-grid{grid-template-columns:minmax(0,1fr)}
+  .boss-mascot{grid-row:1;width:140px;justify-self:start}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
   header.hero{padding:48px 0 40px}
 }
 </style>
@@ -216,16 +256,52 @@ footer{padding:28px 0 40px;font-family:var(--mono);font-size:12.5px;color:var(--
       <p><span lang="es">Sistema de control de asistencia para todo el personal, con hardware en Raspberry Pi y app en Flutter. También arranqué el proyecto de migración de la plataforma de ventas de la empresa.</span><span lang="en">Attendance control system for all staff, with Raspberry Pi hardware and a Flutter app. I also kicked off the migration of the company's sales platform.</span></p>
       <div class="chips"><span class="chip">Raspberry Pi</span><span class="chip">Python</span><span class="chip">Flutter</span></div>
     </article>
-
-    <article class="mission">
-      <div class="m-top"><span>MISSION 06</span><span class="status s-done"><span lang="es">COMUNIDAD</span><span lang="en">COMMUNITY</span></span></div>
-      <h3><span lang="es">Taller “Más ideas, menos código”</span><span lang="en">“More Ideas, Less Code” workshop</span></h3>
-      <div class="org">NASA Space Apps Chihuahua 2026</div>
-      <div class="loot"><span lang="es">Crea apps con IA usando solo herramientas gratuitas</span><span lang="en">Build apps with AI using only free tools</span></div>
-      <p><span lang="es">Diseñé e impartí un taller de 4 horas para principiantes y estudiantes, incluido un bloque para crear su propio asistente de IA. También formé parte del equipo organizador del hackathon.</span><span lang="en">Designed and taught a 4-hour workshop for beginners and students, including a block on building their own AI assistant. I was also part of the hackathon's organizing team.</span></p>
-      <div class="chips"><span class="chip">AI</span><span class="chip">Prompting</span><span class="chip"><span lang="es">Docencia</span><span lang="en">Teaching</span></span></div>
-    </article>
   </div>
+
+    <article class="boss" id="taller" aria-labelledby="h-taller">
+      <div class="m-top"><span>MISSION 06 · BOSS LEVEL</span><span class="status s-boss"><span lang="es">COMUNIDAD · IMPARTIDO</span><span lang="en">COMMUNITY · DELIVERED</span></span></div>
+      <div class="boss-grid">
+        <div>
+          <img class="boss-logo" src="assets/taller/logo-codigo-ideas.png" alt="Logotipo del taller: −código +ideas" width="900" height="378">
+          <h3 id="h-taller"><span lang="es">Más ideas, menos código</span><span lang="en">More Ideas, Less Code</span></h3>
+          <div class="org">NASA Space Apps Chihuahua · Space Talks · <span lang="es">24 oct 2026</span><span lang="en">Oct 24, 2026</span></div>
+          <p><span lang="es">Diseñé e impartí un taller de vibe coding para principiantes y estudiantes: crear apps con IA usando solo herramientas gratuitas, para que el presupuesto no fuera una barrera. Cubrí cómo hablarle a la IA con una fórmula de prompt, cómo crear un asistente propio y cómo publicar el resultado con un enlace para compartir.</span><span lang="en">I designed and taught a vibe coding workshop for beginners and students: building apps with AI using only free tools, so budget was never a barrier. It covered how to talk to AI with a prompt formula, how to build a custom assistant, and how to publish the result with a shareable link.</span></p>
+          <div class="facts">
+            <div class="fact"><b>4 h</b><span lang="es">taller práctico</span><span lang="en">hands-on workshop</span></div>
+            <div class="fact"><b>$0</b><span lang="es">herramientas gratuitas</span><span lang="en">free tools only</span></div>
+            <div class="fact"><b>2</b><span lang="es">prácticas guiadas</span><span lang="en">guided builds</span></div>
+            <div class="fact"><b>1</b><span lang="es">enlace publicado por asistente</span><span lang="en">live link per attendee</span></div>
+          </div>
+          <div class="formula" aria-label="Fórmula del prompt">
+            <span class="lbl"><span lang="es">LA FÓRMULA DEL PROMPT</span><span lang="en">THE PROMPT FORMULA</span></span>
+            <span class="step"><span lang="es">Qué quiero</span><span lang="en">What I want</span></span><span class="arr" aria-hidden="true">→</span>
+            <span class="step"><span lang="es">Para quién</span><span lang="en">Who it's for</span></span><span class="arr" aria-hidden="true">→</span>
+            <span class="step"><span lang="es">Cómo se ve</span><span lang="en">How it looks</span></span><span class="arr" aria-hidden="true">→</span>
+            <span class="step"><span lang="es">Qué debe hacer</span><span lang="en">What it must do</span></span>
+          </div>
+          <a class="btn" href="https://luma.com/w30ggqqb"><span lang="es">Ver el evento ↗</span><span lang="en">See the event ↗</span></a>
+        </div>
+        <img class="boss-mascot" src="assets/taller/mascota.svg" alt="Mascota del taller: un gato pixelado naranja con ojos verdes" width="338" height="330">
+      </div>
+      <div class="gallery-head"><strong><span lang="es">DIAPOSITIVAS</span><span lang="en">SLIDES</span></strong><span lang="es">Toca una para verla grande</span><span lang="en">Tap one to enlarge</span></div>
+      <div class="gallery">
+        <button type="button" class="thumb" id="th-1" data-i="0"><img src="assets/taller/slide-01-portada.jpg" alt="Portada del taller −código +ideas, impartido por José Mora" width="1280" height="721" loading="lazy"><span lang="es">Portada</span><span lang="en">Cover</span></button>
+        <button type="button" class="thumb" id="th-2" data-i="1"><img src="assets/taller/slide-02-que-es.jpg" alt="Diapositiva: qué es vibe coding y su ciclo de cuatro pasos" width="1280" height="721" loading="lazy"><span lang="es">¿Qué es vibe coding?</span><span lang="en">What is vibe coding?</span></button>
+        <button type="button" class="thumb" id="th-3" data-i="2"><img src="assets/taller/slide-03-agenda.jpg" alt="Diapositiva: agenda de 4 horas del taller" width="1280" height="721" loading="lazy"><span lang="es">Agenda de 4 horas</span><span lang="en">4-hour agenda</span></button>
+        <button type="button" class="thumb" id="th-4" data-i="3"><img src="assets/taller/slide-04-formula.jpg" alt="Diapositiva: la fórmula del prompt" width="1280" height="721" loading="lazy"><span lang="es">La fórmula del prompt</span><span lang="en">The prompt formula</span></button>
+        <button type="button" class="thumb" id="th-5" data-i="4"><img src="assets/taller/slide-05-reglas.jpg" alt="Diapositiva: cuatro reglas de oro para trabajar con IA" width="1280" height="721" loading="lazy"><span lang="es">Cuatro reglas de oro</span><span lang="en">Four golden rules</span></button>
+        <button type="button" class="thumb" id="th-6" data-i="5"><img src="assets/taller/slide-06-practica.jpg" alt="Diapositiva: práctica 2, proyectos por nivel de dificultad" width="1280" height="721" loading="lazy"><span lang="es">Práctica 2: tu proyecto</span><span lang="en">Build 2: your project</span></button>
+      </div>
+      <dialog class="lightbox" id="lightbox" aria-label="Diapositiva ampliada">
+        <img class="lb-img" id="lb-img" src="assets/taller/slide-01-portada.jpg" alt="" width="1280" height="721">
+        <div class="lb-bar">
+          <button type="button" id="lb-prev" aria-label="Anterior">◂</button>
+          <span id="lb-cap">1 / 6</span>
+          <button type="button" id="lb-next" aria-label="Siguiente">▸</button>
+          <button type="button" id="lb-close"><span lang="es">Cerrar</span><span lang="en">Close</span> ✕</button>
+        </div>
+      </dialog>
+    </article>
 </section>
 
 <section id="stack" aria-labelledby="h-stack">
@@ -308,6 +384,18 @@ footer{padding:28px 0 40px;font-family:var(--mono);font-size:12.5px;color:var(--
   });
   window.addEventListener('hashchange', fromHash);
   fromHash();
+})();
+(function(){
+  var dlg=document.getElementById('lightbox'); if(!dlg) return;
+  var thumbs=[].slice.call(document.querySelectorAll('.thumb'));
+  var img=document.getElementById('lb-img'), cap=document.getElementById('lb-cap'), i=0;
+  function show(n){ i=(n+thumbs.length)%thumbs.length; var t=thumbs[i].querySelector('img'); img.src=t.src; img.alt=t.alt; cap.textContent=(i+1)+' / '+thumbs.length; }
+  thumbs.forEach(function(t,n){ t.addEventListener('click',function(){ show(n); try{ dlg.showModal(); }catch(e){ dlg.setAttribute('open',''); } }); });
+  document.getElementById('lb-prev').addEventListener('click',function(){ show(i-1); });
+  document.getElementById('lb-next').addEventListener('click',function(){ show(i+1); });
+  document.getElementById('lb-close').addEventListener('click',function(){ dlg.close ? dlg.close() : dlg.removeAttribute('open'); });
+  dlg.addEventListener('keydown',function(e){ if(e.key==='ArrowLeft') show(i-1); if(e.key==='ArrowRight') show(i+1); });
+  dlg.addEventListener('click',function(e){ if(e.target===dlg && dlg.close) dlg.close(); });
 })();
 </script>
 </body>
